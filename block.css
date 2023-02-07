@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header{
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    background-color: black;
+    color: white;
+}
+#block{
+    color: red;
+    font-size: xx-large;
+}
+.maindiv{
+    position: relative;
+    display: flex;
+    border: 2px solid black;
+    width: 45rem;
+    height: 30rem;
+    margin: 3% auto;
+}
+#divrandom{
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    background-color: red;
+}
+span{
+    font-size:x-large;
+    font-weight:bolder;
+}
+.resetbutton{
+    display: flex;
+    justify-content: center;
+}
+#resetGame{
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: black;
+    border: none;
+    color: white;
+    font-size: larger;
+    font-weight: bolder; 
+    width: 15%; 
+}
+#count{
+    color:red
+}
+#time{
+    color: red;
+}

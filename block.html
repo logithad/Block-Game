@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="block.css">
+    <script src="block.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <div>
+            <h1><span id="block">BLOCK</span>GAME</h1>
+        </div>
+        <div >
+            <span id="counter">Counter : </span>
+            <span id="count"></span>
+        </div>
+        <div class="timer">
+            <span>Timer : </span>
+            <span id="time"></span>
+        </div>
+    </header>
+    <!--  -->
+    <div class="maindiv" id="main">
+        <div class="randomdiv" id="divrandom" onclick="clicked()">
+
+        </div>      
+    </div>
+    <div class="resetbutton">
+        <button type="button" onclick="startGame()" id="resetGame">START GAME</button>
+    </div>
+    <!-- Javascript QUeries -->
+    <script>
+        let score=0;
+        let timer=60;
+        let box=document.querySelector('.maindiv');
+        let width=box.offsetWidth;
+        let height=box.offsetHeight;
+        let stopPosition;
+        let stopTimer;
+        console.log(width,height);
+        document.getElementById('main').style=`pointer-events:none`;
+        function startGame()
+        {
+            score=0;
+            timer=60;
+            document.getElementById('resetGame').innerHTML="START GAME";
+            document.getElementById('main').style=`pointer-events:auto`;
+            document.getElementById('counter').innerHTML="Counter :";
+            document.getElementById('count').innerHTML=0;
+            document.getElementById('time').innerHTML=60;
+
+            stopPosition=setInterval(changePosition,1500);
+            stopTimer=setInterval(timerfunc,1000);
+        }
+        
+        function changePosition()
+        {
+            console.log("hi");
+            let randomTop=Math.floor(Math.random()*(height-80));
+            let randomLeft=Math.floor(Math.random()*(width-90));
+            document.getElementById('divrandom').style.top=randomTop+'px';
+            document.getElementById('divrandom').style.left=randomLeft+'px';
+
+        }
+        function clicked()
+        {
+            score++;
+            document.getElementById('count').innerHTML=score;
+        }
+        function timerfunc()
+        {
+            timer--;
+            document.getElementById('time').innerHTML=timer;
+            if(timer ==50)
+            {
+                clearInterval(stopPosition);
+                clearInterval(stopTimer);
+                document.getElementById('counter').innerHTML="Your Final Score :";
+                document.getElementById('main').style=`pointer-events:none`;
+                document.getElementById('resetGame').innerHTML="RESET";
+            }
+        }
+    </script>
+</body>
+</html>
